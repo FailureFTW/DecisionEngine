@@ -68,7 +68,7 @@ private:
 	TTEntry* table;	// Pointer to table entry currently in use
 	void* mem;	// Pointer to the whole table
 	GenType gen;	// Size must be not bigger than TTEntry::gen
-};
+} TT;
 
 extern TranspositionTable TT;
 

@@ -32,9 +32,9 @@ private:
 		// This function is used by the quicksort algorithm to find the splitpoint.
 	template<typename T, int N> int split(T (&data)[N], int leftIndex, int rightIndex);
 	template<typename T, int N1, int N2> int split(T (&data)[N1][N2], int leftIndex, int rightIndex, int sortIndex);
-} dataSort;
+} sorting;
 
-extern Sorting dataSort;
+	// Templated functions have to be defined in the header because they cannot be compiled.
 
 template<typename T, int N> void Sorting::Quicksort(T (&data)[N])
 {
@@ -100,7 +100,7 @@ template<typename T, int N1, int N2> int Sorting::split(T (&data)[N1][N2], int l
 			leftIndex++;
 		while (data[rightIndex][sortIndex] > pivot)
 			rightIndex--;
-		if (data[leftIndex][sortIndex] == data[rightIndex][0])
+		if (data[leftIndex][sortIndex] == data[rightIndex][sortIndex])
 			leftIndex++;
 		else if (leftIndex < rightIndex)
 		{
@@ -114,5 +114,7 @@ template<typename T, int N1, int N2> int Sorting::split(T (&data)[N1][N2], int l
 	}
 	return rightIndex;
 }
+	// This makes sorting available outside the class
+extern Sorting sorting;
 
 #endif

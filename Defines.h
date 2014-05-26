@@ -1,7 +1,7 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
-#include "Includes.h"
+#include <stdint.h>
 
 #define KeyType uint32_t
 #define ScoreType uint16_t
@@ -22,6 +22,6 @@ enum Move
 	MOVE_RIGHT,
 	MOVE_DOWN,
 	MOVE_LEFT
-};
+}
 
 #endif

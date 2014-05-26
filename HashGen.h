@@ -10,13 +10,6 @@
 	 *	See http://en.wikipedia.org/wiki/Zobrist_hashing for info.
 	 */
 
-namespace ZobristHash
-{
-		// Array of random values for every position of every element
-		// on the board used for key generation.
-	// KeyType PieceKeys[NUM_SQUARES][NUM_VALUES];
-};
-
 void HashInit();
 KeyType GenerateKey(SquareType* pos); // Input a position to be used
 

@@ -4,26 +4,36 @@ int main ()
 // int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow)
 {
 	InitRNG();
-	unsigned int data[8][2];
-	int size1 = sizeof(data)/sizeof(data[0]);
-	int size2 = sizeof(data[0])/sizeof(data[0][0]);
+	HashInit();
+	SquareType data[NUM_SQUARES];
+	SquareType ranks[NUM_SQUARES][2];
 
 	while(true)
 	{
-		for (int i=0; i<size2; i++)
-			FillRandom::FillArray(data, 0, 10, i);
+		FillRandom::FillArray(data, 0, 17);
+
+		for (int i=0; i<NUM_SQUARES; i++)
+			ranks[i][0] = i;
 		
-		for (int i=0; i<size1; i++)
-			std::cout << "(" << data[i][0] << "," << data[i][1] << ") ";
-
+		for (int i=0; i<NUM_SQUARES; i++)
+			ranks[i][1] = data[i];
+		
+		std::cout << "Board:" << std::endl;
+		for (int i=0; i<NUM_SQUARES; i++)
+			std::cout << "(" << int(ranks[i][0]) << "," << int(ranks[i][1]) << ") ";
+		
 		std::cout << std::endl;
 
-		dataSort.Quicksort(data, 0);
-
-		for (int i=0; i<size1; i++)
-			std::cout << "(" << data[i][0] << "," << data[i][1] << ") ";
-
+		sorting.Quicksort(ranks, 1);
+		
+		std::cout << "Ranks:" << std::endl;
+		for (int i=0; i<NUM_SQUARES; i++)
+			std::cout << "(" << int(ranks[i][0]) << "," << int(ranks[i][1]) << ") ";
+		
 		std::cout << std::endl;
+
+		std::cout << "Key:" << GenerateKey(data) << std::endl << std::endl;
+
 		system("pause");
 		std::cout << std::endl;
 	}

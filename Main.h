@@ -8,4 +8,9 @@
 #include "HashGen.h"
 #include "RandFill.h"
 
+class Board
+{
+
+} board;
+
 #endif

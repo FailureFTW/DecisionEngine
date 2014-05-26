@@ -11,4 +11,11 @@ struct StateInfo
 
 };
 
+class Position
+{
+public:
+	bool doMove(Move move);
+	bool doCounterMove(int i);
+};
+
 #endif

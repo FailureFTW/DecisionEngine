@@ -8,15 +8,29 @@
 	 * That way, small deviations in the board will be sure to make a difference in the key.
 	 */
 
+namespace ZobristHash
+{
+		// Array of random values for every position of every element
+		// on the board used for key generation.
+	KeyType LookupTable[NUM_SQUARES][NUM_VALUES];
+}
 
 void HashInit()
 {
 	// Sweep through the lookup table and generate random numbers
 	// to be assigned to a unique square/value combination
 
-	//int size = sizeof(ZobristHash::PieceKeys)/sizeof(ZobristHash::PieceKeys[0]);
-
-	//for (int i=0; i<size; i++)
-	//	FillRandom::FillArray(ZobristHash::PieceKeys[i]);
+	for (int i=0; i<NUM_VALUES; i++)
+		FillRandom::FillArray(ZobristHash::LookupTable, i);
 }
 
+KeyType GenerateKey(SquareType* board)
+{
+	KeyType key = 0;
+	SquareType *pos = board;
+
+	for (int i=0; i<NUM_SQUARES; i++, pos++)
+		key ^= ZobristHash::LookupTable[i][*pos];
+
+	return key;
+}
