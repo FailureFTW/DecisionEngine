@@ -10,7 +10,7 @@ int main ()
 
 	while(true)
 	{
-		FillRandom::FillArray(data, 0, 17);
+		FillRandom::FillArray(data, 0, NUM_VALUES-1);
 
 		for (int i=0; i<NUM_SQUARES; i++)
 			ranks[i][0] = i;

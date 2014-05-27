@@ -28,4 +28,14 @@ unsigned int Log2Fast(unsigned int Value);
 unsigned int Log2Slow(unsigned int Value);
 unsigned int Log2Pow2(unsigned int Value);
 
+template <typename T> void displayBits(T number)
+{
+	int sz = 8*sizeof(T);
+	for (int i=0; i<sz; i++)
+	{
+		if (i%4==0) cout << " ";
+		cout << GetBit(number, i);
+	}
+}
+
 #endif

@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <malloc.h>
+#include <assert.h>
 #include "Defines.h"
 
 #endif

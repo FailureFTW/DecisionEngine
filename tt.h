@@ -57,7 +57,7 @@ public:
 		// These functions do the actual maipulation of the table.
 
 	void init();
-	TTEntry* First_Entry() const;
+	TTEntry* First_Entry(const KeyType Key) const;
 	const TTEntry* Probe(const KeyType key) const;
 	void Store(KeyType k, ScoreType s, ScoreType e, MoveType m, DepthType d, GenType g);
 	void Resize(uint32_t size_MB);
@@ -73,5 +73,3 @@ private:
 extern TranspositionTable TT;
 
 #endif
-
-// Remember to use bucket hashing
